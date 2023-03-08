@@ -4,7 +4,7 @@ import { PlayIcon } from "@heroicons/react/24/solid";
 function Clips({ clip, imgsrc }) {
   return (
     <>
-      <div className="relative h-28 w-32 rounded-xl overflow-hidden group cursor-pointer  t transition-all duration-300">
+      <div className="relative h-28 w-32 rounded-xl overflow-hidden group cursor-pointer   transition-all duration-300  lg:w-28 md:w-24 sm:w-16 lg:h-24 md:h-20 sm:h-14 sm:mt-2.5 xsm:mt-2.5">
         <img
           src={imgsrc}
           alt="img/clips"
@@ -24,6 +24,7 @@ function Clips({ clip, imgsrc }) {
         </video>
       </div>
     </>
+
   );
 }
 
