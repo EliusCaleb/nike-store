@@ -5,10 +5,12 @@ import FlexContent from './components/FlexContent'
 import { heroapi,popularsales,footerAPI,toprateslaes,sneaker,highlight,story } from './data/data'
 import { Stories } from './components'
 import Footer from './components/Footer'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
     <div>
+      <Navbar/>
       <main className='flex flex-col gap-16 relative'>
       <Home heroapi= {heroapi}/>
       <Sales endpoint={popularsales} ifExists />
