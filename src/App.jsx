@@ -2,8 +2,9 @@ import React from 'react'
 import Home from './components/Home'
 import Sales from './components/Sales'
 import FlexContent from './components/FlexContent'
-import { heroapi,popularsales,toprateslaes,sneaker,highlight,story } from './data/data'
+import { heroapi,popularsales,footerAPI,toprateslaes,sneaker,highlight,story } from './data/data'
 import { Stories } from './components'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
       <Sales endpoint={toprateslaes}/>
       <FlexContent endpoint={sneaker}/>
       <Stories story={story}/>
-      </main>  
+      </main> 
+      <Footer footerAPI={footerAPI}/>  
     </div>
   )
 }
