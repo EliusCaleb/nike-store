@@ -6,11 +6,13 @@ import { heroapi,popularsales,footerAPI,toprateslaes,sneaker,highlight,story } f
 import { Stories } from './components'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
+import Cart from './components/Cart'
 
 function App() {
   return (
     <div>
       <Navbar/>
+      <Cart/>
       <main className='flex flex-col gap-16 relative'>
       <Home heroapi= {heroapi}/>
       <Sales endpoint={popularsales} ifExists />
