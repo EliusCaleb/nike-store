@@ -1,11 +1,19 @@
 import React,{useEffect,useState} from 'react'
 import logo from '../assets/logo.png'
+import { useDispatch } from 'react-redux'
 import { MagnifyingGlassIcon, ShoppingBagIcon } from '@heroicons/react/24/solid'
 import { HeartIcon } from '@heroicons/react/24/outline'
+import {  setOpenCart } from '../app/CartSlice.js';
 import { filter } from 'lodash'
 
 function Navbar() {
     const[ navState,setNavState] = useState(false)
+    const dispatch = useDispatch()
+    const onCartToggle =()=>{
+         dispatch(setOpenCart({
+            cartState:true
+         }))
+    }
     const onNavScroll = ()=>{
         if(window.scrollY>30){
           setNavState(true)
@@ -41,7 +49,7 @@ function Navbar() {
                         <HeartIcon className={`icon-style ${navState && 'text-slate-900 transition-all duration-300'}`}/>
                     </li>
                     <li className='grid items-center'>
-                        <button type='button' className='border-none outline-none active:scale-110 transition-all duration-300 relative'>
+                        <button type='button' onClick={onCartToggle} className='border-none outline-none active:scale-110 transition-all duration-300 relative'>
                             <ShoppingBagIcon className={`icon-style ${navState && 'text-slate-900 transition-all duration-300'}`}/>
                             <div className={`absolute top-4 right-0  w-4 h-4  text-[0.65rem] leading-tight font-medium flex items-center rounded-full justify-center cursor-pointer transition-all duration-300 hover:scale-110  ${navState ? 'text-slate-100 bg-slate-900 shadow-slate-900':'text-slate-900 bg-slate-100 shadow-slate-100'}`}>0</div>
                         </button>
