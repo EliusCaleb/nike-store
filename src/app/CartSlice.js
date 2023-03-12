@@ -31,11 +31,18 @@ const CartSlice = createSlice({
             };
 
             localStorage.setItem('cart', JSON.stringify(state.cartItem));
+        },
+        setRemoveItemFromCart: (state,action) => {
+            const removeItem = state.cartItem.filter((item) => item.id !== action.payload.id);
+            state.cartItem = removeItem
+            localStorage.setItem('cart', JSON.stringify(state.cartItem));
+
+            toast.success(`${action.payload.title} removed from cart`)
         }
     }
 })
 
-export const{ setOpenCart,setCloseCart,setAddItemsToCart} = CartSlice.actions;
+export const{ setOpenCart,setCloseCart,setAddItemsToCart, setRemoveItemFromCart} = CartSlice.actions;
 export const selectCartState =(state)=> state.cart.cartState;
 export const selectCartItem = (state) => state.cart.cartItem;
 export default CartSlice.reducer;
