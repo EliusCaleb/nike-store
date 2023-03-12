@@ -16,7 +16,14 @@ const CartSlice = createSlice({
             state.cartState = action.payload.cartState
         },
         setAddItemsToCart: (state,action) =>{
-            state.cartItem.push(action.payload)
+            const itemIndex = state.cartItem.findIndex((item)=>
+             item.id===action.payload.id);
+            
+            if(itemIndex >=0){
+                state.cartItem[itemIndex].cartQuantity += 1;
+            }else {
+            const temp =  {...action.payload, cartQuantity: 1}
+            state.cartItem.push(temp)}
         }
     }
 })
