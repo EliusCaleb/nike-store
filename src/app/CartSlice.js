@@ -20,8 +20,8 @@ const CartSlice = createSlice({
     setCloseCart: (state, action) => {
       state.cartState = action.payload.cartState;
     },
-    setAddItemToCart: (state, action) => {
-      const itemIndex = state.cartItems.findIndex(
+    setAddItemsToCart: (state, action) => {
+      const itemIndex = state.cartItem.findIndex(
         (item) => item.id === action.payload.id
       );
 
